@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		805D754B1F9A3B22000ED9CF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805D754A1F9A3B22000ED9CF /* Alamofire.framework */; };
 		805D754C1F9A3B22000ED9CF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 805D754A1F9A3B22000ED9CF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		805D754F1F9A4967000ED9CF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805D754E1F9A4967000ED9CF /* SearchViewController.swift */; };
+		805D75511F9A4A42000ED9CF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805D75501F9A4A42000ED9CF /* SearchViewModel.swift */; };
 		8076626A1F9A052D003A30C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807662691F9A052D003A30C9 /* AppDelegate.swift */; };
 		807662711F9A052D003A30C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 807662701F9A052D003A30C9 /* Assets.xcassets */; };
 		807662741F9A052D003A30C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807662721F9A052D003A30C9 /* LaunchScreen.storyboard */; };
@@ -35,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		805D754A1F9A3B22000ED9CF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		805D754E1F9A4967000ED9CF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		805D75501F9A4A42000ED9CF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		807662661F9A052D003A30C9 /* Flickr-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807662691F9A052D003A30C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		807662701F9A052D003A30C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			children = (
 				8076627E1F9A07AC003A30C9 /* NavigationController.swift */,
 				807662831F9A0ABF003A30C9 /* PhotoCollectionViewController.swift */,
+				805D754E1F9A4967000ED9CF /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				807662851F9A0B73003A30C9 /* PhotoCollectionViewModel.swift */,
+				805D75501F9A4A42000ED9CF /* SearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -197,6 +203,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				807662881F9A0C3B003A30C9 /* Photo.swift in Sources */,
+				805D754F1F9A4967000ED9CF /* SearchViewController.swift in Sources */,
+				805D75511F9A4A42000ED9CF /* SearchViewModel.swift in Sources */,
 				807662841F9A0ABF003A30C9 /* PhotoCollectionViewController.swift in Sources */,
 				8076627F1F9A07AC003A30C9 /* NavigationController.swift in Sources */,
 				8076626A1F9A052D003A30C9 /* AppDelegate.swift in Sources */,
