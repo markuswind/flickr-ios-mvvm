@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8076626A1F9A052D003A30C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807662691F9A052D003A30C9 /* AppDelegate.swift */; };
 		8076626C1F9A052D003A30C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8076626B1F9A052D003A30C9 /* ViewController.swift */; };
-		8076626F1F9A052D003A30C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8076626D1F9A052D003A30C9 /* Main.storyboard */; };
 		807662711F9A052D003A30C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 807662701F9A052D003A30C9 /* Assets.xcassets */; };
 		807662741F9A052D003A30C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807662721F9A052D003A30C9 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,7 +17,6 @@
 		807662661F9A052D003A30C9 /* Flickr-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807662691F9A052D003A30C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8076626B1F9A052D003A30C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8076626E1F9A052D003A30C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		807662701F9A052D003A30C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		807662731F9A052D003A30C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		807662751F9A052D003A30C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,14 +52,37 @@
 		807662681F9A052D003A30C9 /* Flickr-MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				807662751F9A052D003A30C9 /* Info.plist */,
 				807662691F9A052D003A30C9 /* AppDelegate.swift */,
-				8076626B1F9A052D003A30C9 /* ViewController.swift */,
-				8076626D1F9A052D003A30C9 /* Main.storyboard */,
 				807662701F9A052D003A30C9 /* Assets.xcassets */,
 				807662721F9A052D003A30C9 /* LaunchScreen.storyboard */,
-				807662751F9A052D003A30C9 /* Info.plist */,
+				8076627B1F9A05C6003A30C9 /* Models */,
+				8076627C1F9A05CC003A30C9 /* ViewControllers */,
+				8076627D1F9A05D3003A30C9 /* ViewModels */,
 			);
 			path = "Flickr-MVVM";
+			sourceTree = "<group>";
+		};
+		8076627B1F9A05C6003A30C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8076627C1F9A05CC003A30C9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8076626B1F9A052D003A30C9 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8076627D1F9A05D3003A30C9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +146,6 @@
 			files = (
 				807662741F9A052D003A30C9 /* LaunchScreen.storyboard in Resources */,
 				807662711F9A052D003A30C9 /* Assets.xcassets in Resources */,
-				8076626F1F9A052D003A30C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,14 +164,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8076626D1F9A052D003A30C9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8076626E1F9A052D003A30C9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		807662721F9A052D003A30C9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
