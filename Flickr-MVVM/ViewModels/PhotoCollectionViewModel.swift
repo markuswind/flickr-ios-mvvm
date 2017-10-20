@@ -11,10 +11,10 @@ class PhotoCollectionViewModel {
     let reuseIdentifier = "PhotoCollectionViewCell"
 
     // TODO: - make these variables static?
-    let itemsPerPage = 30
-    let itemsPerRow = 2
-    let itemsPerSection = 10
-    let itemsTreshold = 15
+    static let itemsPerPage = 30
+    static let itemsPerRow = 2
+    static let itemsPerSection = 10
+    static let itemsTreshold = itemsPerPage / 2
 
     let photosSearchTerm: String!
 

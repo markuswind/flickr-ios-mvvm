@@ -52,8 +52,12 @@ class PhotoCollectionViewController: UICollectionViewController {
     // MARK: - User Interaction
 
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let currentItem = indexPath.row + (indexPath.section * viewModel.itemsPerSection)
-        let treshHoldItem = (viewModel.currentPage * viewModel.itemsPerPage) - viewModel.itemsTreshold
+        let itemsPerPage = PhotoCollectionViewModel.itemsPerPage
+        let itemsPerSection = PhotoCollectionViewModel.itemsPerSection
+        let itemsTreshold = PhotoCollectionViewModel.itemsTreshold
+
+        let currentItem = indexPath.row + (indexPath.section * itemsPerSection)
+        let treshHoldItem = (viewModel.currentPage * itemsPerPage) - itemsTreshold
 
         if (currentItem > treshHoldItem) && (viewModel.currentPage < viewModel.totalPages) {
             // TODO: - request new page with images from viewModel && call updateCollectionView on completion
@@ -85,11 +89,11 @@ class PhotoCollectionViewController: UICollectionViewController {
 extension PhotoCollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return viewModel.photosData.count / viewModel.itemsPerSection
+        return viewModel.photosData.count / PhotoCollectionViewModel.itemsPerSection
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.itemsPerSection
+        return PhotoCollectionViewModel.itemsPerSection
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
