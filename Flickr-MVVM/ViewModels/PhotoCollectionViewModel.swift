@@ -17,7 +17,10 @@ class PhotoCollectionViewModel {
     let itemsTreshold = 15
 
     let photosSearchTerm: String!
+
     var photosData: [Photo] = []
+    var currentPage = 0
+    var totalPages = 0
 
     init(searchTerm: String) {
         photosSearchTerm = searchTerm

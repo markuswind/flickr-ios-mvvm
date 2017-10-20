@@ -10,13 +10,12 @@ import UIKit
 
 class PhotoCollectionViewController: UICollectionViewController {
 
-    fileprivate let viewModel: PhotoCollectionViewModel!
+   fileprivate let viewModel: PhotoCollectionViewModel!
 
     // MARK: - Lifecycle
 
     init(withViewModel: PhotoCollectionViewModel) {
         viewModel = withViewModel
-
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
 
@@ -28,7 +27,6 @@ class PhotoCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureNavigationBar()
         configureCollectionView()
     }
@@ -48,11 +46,38 @@ class PhotoCollectionViewController: UICollectionViewController {
     }
 
     // MARK: - User Interaction
+
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let currentItem = indexPath.row + (indexPath.section * viewModel.itemsPerSection)
+        let treshHoldItem = (viewModel.currentPage * viewModel.itemsPerPage) - viewModel.itemsTreshold
+
+        if (currentItem > treshHoldItem) && (viewModel.currentPage < viewModel.totalPages) {
+            // TODO: - request new page with images from viewModel && call updateCollectionView on completion
+        }
+    }
+
+    private func updateCollectionView() {
+        DispatchQueue.main.async{
+            if let collectionView = self.collectionView {
+                if collectionView.numberOfSections == 0 {
+                    collectionView.reloadData()
+                } else {
+                    let numberOfSections = collectionView.numberOfSections
+                    let lastIndexOfNewSections = numberOfSections + 2
+                    let indexSet = IndexSet(integersIn: numberOfSections...lastIndexOfNewSections)
+
+                    collectionView.insertSections(indexSet)
+                }
+            }
+        }
+    }
+
     // TODO: - Add interactions for lazy loading + opening image
 
 }
 
 // MARK: - UICollectionViewDataSource
+
 extension PhotoCollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
