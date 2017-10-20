@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let navigationController = createNavigationController()
+        let photoCollectionViewController = createPhotoCollectionViewController()
+
+        let navigationController = NavigationController()
+        navigationController.viewControllers.append(photoCollectionViewController)
 
         window = createWindow(rootViewController: navigationController)
         window!.makeKeyAndVisible()
@@ -22,13 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    private func createNavigationController() -> UINavigationController {
-        let navigationController = NavigationController()
-        let viewController = ViewController()
+    private func createPhotoCollectionViewController() -> PhotoCollectionViewController {
+        let photoCollectionViewModel = PhotoCollectionViewModel()
+        let photoCollectionViewController = PhotoCollectionViewController(withViewModel: photoCollectionViewModel)
 
-        navigationController.viewControllers.append(viewController)
-
-        return navigationController
+        return photoCollectionViewController
     }
 
     private func createWindow(rootViewController: UIViewController) -> UIWindow {
@@ -41,4 +42,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

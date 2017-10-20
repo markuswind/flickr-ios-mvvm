@@ -20,8 +20,8 @@ class NavigationController: UINavigationController {
         navigationBar.barStyle = .black
         navigationBar.isTranslucent = true
 
-        navigationBar.tintColor = .white
-        navigationBar.barTintColor = .darkGray
+        navigationBar.barTintColor = Color.primaryColor
+        navigationBar.tintColor = Color.secondaryColor
     }
 
 }
