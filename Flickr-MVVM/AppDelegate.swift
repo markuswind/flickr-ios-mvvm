@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func createPhotoCollectionViewController() -> PhotoCollectionViewController {
-        let photoCollectionViewModel = PhotoCollectionViewModel()
+        let photoCollectionViewModel = PhotoCollectionViewModel(searchTerm: "Fruit")
         let photoCollectionViewController = PhotoCollectionViewController(withViewModel: photoCollectionViewModel)
 
         return photoCollectionViewController

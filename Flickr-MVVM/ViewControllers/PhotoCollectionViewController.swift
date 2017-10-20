@@ -34,8 +34,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     }
 
     private func configureNavigationBar() {
-        // TODO: - use search term as navigation title
-        navigationItem.title = "PhotoCollectionView"
+        navigationItem.title = viewModel.photosSearchTerm
     }
 
     private func configureCollectionView() {

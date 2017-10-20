@@ -16,6 +16,11 @@ class PhotoCollectionViewModel {
     let itemsPerSection = 10
     let itemsTreshold = 15
 
+    let photosSearchTerm: String!
     var photosData: [Photo] = []
+
+    init(searchTerm: String) {
+        photosSearchTerm = searchTerm
+    }
 
 }
