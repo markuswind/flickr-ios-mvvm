@@ -14,18 +14,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let rootViewController = createRootViewController()
+        let navigationController = createNavigationController()
 
-        window = createWindow(rootViewController: rootViewController)
+        window = createWindow(rootViewController: navigationController)
         window!.makeKeyAndVisible()
 
         return true
     }
 
-    private func createRootViewController() -> UIViewController {
+    private func createNavigationController() -> UINavigationController {
+        let navigationController = NavigationController()
         let viewController = ViewController()
 
-        return viewController
+        navigationController.viewControllers.append(viewController)
+
+        return navigationController
     }
 
     private func createWindow(rootViewController: UIViewController) -> UIWindow {
