@@ -7,11 +7,13 @@
 //
 
 class Photo {
+
     private let farm: Int
     private let server: Int
     private let id: Int
     private let secret: String
     private let title: String
+    private let imageUrl: String
 
     init(farm: Int, server: Int, id: Int, secret: String, title: String) {
         self.farm = farm
@@ -19,11 +21,7 @@ class Photo {
         self.id = id
         self.secret = secret
         self.title = title
+        self.imageUrl = "https://farm\(farm).static.flickr.com/\(server)/\(id)_\(secret).jpg"
     }
-}
 
-extension Photo {
-    func url() -> String {
-        return "https://farm\(farm).static.flickr.com/\(server)/\(id)_\(secret).jpg"
-    }
 }

@@ -39,10 +39,14 @@ class PhotoCollectionViewController: UICollectionViewController {
         if let collectionView = collectionView {
             collectionView.delegate = self
             collectionView.dataSource = self
-            collectionView.backgroundColor = .white
+            collectionView.backgroundColor = Color.backgroundColor
 
             collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: viewModel.reuseIdentifier)
         }
+    }
+
+    override func viewDidLayoutSubviews() {
+        // TODO: - load initial photos data
     }
 
     // MARK: - User Interaction
