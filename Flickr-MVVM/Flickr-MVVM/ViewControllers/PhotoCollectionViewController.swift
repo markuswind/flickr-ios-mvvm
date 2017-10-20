@@ -10,7 +10,13 @@ import UIKit
 
 class PhotoCollectionViewController: UICollectionViewController {
 
+    fileprivate let viewModel: PhotoCollectionViewModel!
+
+    // MARK: - Lifecycle
+
     init(withViewModel: PhotoCollectionViewModel) {
+        viewModel = withViewModel
+
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
 
@@ -18,10 +24,50 @@ class PhotoCollectionViewController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - View Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView!.backgroundColor = .white
+        configureNavigationBar()
+        configureCollectionView()
+    }
+
+    private func configureNavigationBar() {
+        // TODO: - use search term as navigation title
+        navigationItem.title = "PhotoCollectionView"
+    }
+
+    private func configureCollectionView() {
+        if let collectionView = collectionView {
+            collectionView.delegate = self
+            collectionView.dataSource = self
+            collectionView.backgroundColor = .white
+
+            collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: viewModel.reuseIdentifier)
+        }
+    }
+
+    // MARK: - User Interaction
+    // TODO: - Add interactions for lazy loading + opening image
+
+}
+
+// MARK: - UICollectionViewDataSource
+extension PhotoCollectionViewController {
+
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return viewModel.photosData.count / viewModel.itemsPerSection
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.itemsPerSection
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.reuseIdentifier, for: indexPath) as UICollectionViewCell
+
+        return cell
     }
 
 }

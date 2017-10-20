@@ -8,15 +8,14 @@
 
 class PhotoCollectionViewModel {
 
-    static let itemsPerPage = 30
-    static let itemsPerRow = 2
-    static let itemsPerSection = 10
-    static let itemsTreshold = itemsPerPage / 2
+    let reuseIdentifier = "PhotoCollectionViewCell"
 
-    var photos: [Photo]!
+    // TODO: - make these variables static?
+    let itemsPerPage = 30
+    let itemsPerRow = 2
+    let itemsPerSection = 10
+    let itemsTreshold = 15
 
-    init() {
-        self.photos = []
-    }
+    var photosData: [Photo] = []
 
 }
