@@ -41,7 +41,7 @@
 		805D754A1F9A3B22000ED9CF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		805D754E1F9A4967000ED9CF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		805D75501F9A4A42000ED9CF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		807662661F9A052D003A30C9 /* Flickr-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		807662661F9A052D003A30C9 /* flick-ios-mvvm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flick-ios-mvvm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807662691F9A052D003A30C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		807662701F9A052D003A30C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		807662731F9A052D003A30C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				805D754A1F9A3B22000ED9CF /* Alamofire.framework */,
-				807662681F9A052D003A30C9 /* Flickr-MVVM */,
+				807662681F9A052D003A30C9 /* flickr-ios-mvvm */,
 				807662671F9A052D003A30C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,12 +85,12 @@
 		807662671F9A052D003A30C9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				807662661F9A052D003A30C9 /* Flickr-MVVM.app */,
+				807662661F9A052D003A30C9 /* flick-ios-mvvm.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		807662681F9A052D003A30C9 /* Flickr-MVVM */ = {
+		807662681F9A052D003A30C9 /* flickr-ios-mvvm */ = {
 			isa = PBXGroup;
 			children = (
 				807662751F9A052D003A30C9 /* Info.plist */,
@@ -103,8 +103,9 @@
 				8076627C1F9A05CC003A30C9 /* ViewControllers */,
 				8076627D1F9A05D3003A30C9 /* ViewModels */,
 			);
-			path = "Flickr-MVVM";
+			path = "flickr-ios-mvvm";
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		8076627B1F9A05C6003A30C9 /* Models */ = {
 			isa = PBXGroup;
@@ -144,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		807662651F9A052D003A30C9 /* Flickr-MVVM */ = {
+		807662651F9A052D003A30C9 /* flick-ios-mvvm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 807662781F9A052D003A30C9 /* Build configuration list for PBXNativeTarget "Flickr-MVVM" */;
+			buildConfigurationList = 807662781F9A052D003A30C9 /* Build configuration list for PBXNativeTarget "flick-ios-mvvm" */;
 			buildPhases = (
 				807662621F9A052D003A30C9 /* Sources */,
 				807662631F9A052D003A30C9 /* Frameworks */,
@@ -157,9 +158,9 @@
 			);
 			dependencies = (
 			);
-			name = "Flickr-MVVM";
+			name = "flick-ios-mvvm";
 			productName = "Flickr-MVVM";
-			productReference = 807662661F9A052D003A30C9 /* Flickr-MVVM.app */;
+			productReference = 807662661F9A052D003A30C9 /* flick-ios-mvvm.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -178,7 +179,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 807662611F9A052D003A30C9 /* Build configuration list for PBXProject "Flickr-MVVM" */;
+			buildConfigurationList = 807662611F9A052D003A30C9 /* Build configuration list for PBXProject "flickr-ios-mvvm" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -191,7 +192,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				807662651F9A052D003A30C9 /* Flickr-MVVM */,
+				807662651F9A052D003A30C9 /* flick-ios-mvvm */,
 			);
 		};
 /* End PBXProject section */
@@ -355,10 +356,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "Flickr-MVVM/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/flickr-ios-mvvm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.markuswind.Flickr-MVVM";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.markuswind.flick-ios-mvvm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -374,10 +375,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "Flickr-MVVM/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/flickr-ios-mvvm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.markuswind.Flickr-MVVM";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.markuswind.flick-ios-mvvm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -387,7 +388,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		807662611F9A052D003A30C9 /* Build configuration list for PBXProject "Flickr-MVVM" */ = {
+		807662611F9A052D003A30C9 /* Build configuration list for PBXProject "flickr-ios-mvvm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				807662761F9A052D003A30C9 /* Debug */,
@@ -396,7 +397,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		807662781F9A052D003A30C9 /* Build configuration list for PBXNativeTarget "Flickr-MVVM" */ = {
+		807662781F9A052D003A30C9 /* Build configuration list for PBXNativeTarget "flick-ios-mvvm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				807662791F9A052D003A30C9 /* Debug */,
