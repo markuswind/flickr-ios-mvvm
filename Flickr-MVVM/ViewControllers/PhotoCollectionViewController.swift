@@ -32,7 +32,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     }
 
     private func configureNavigationBar() {
-        navigationItem.title = viewModel.photosSearchTerm
+        navigationItem.title = viewModel.photosSearchText
     }
 
     private func configureCollectionView() {

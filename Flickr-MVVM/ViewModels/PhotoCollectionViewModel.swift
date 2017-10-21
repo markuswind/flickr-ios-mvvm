@@ -16,14 +16,14 @@ class PhotoCollectionViewModel {
     static let itemsPerSection = 10
     static let itemsTreshold = itemsPerPage / 2
 
-    let photosSearchTerm: String!
+    let photosSearchText: String!
 
     var photosData: [Photo] = []
     var currentPage = 0
     var totalPages = 0
 
-    init(searchTerm: String) {
-        photosSearchTerm = searchTerm
+    init(searchText: String) {
+        photosSearchText = searchText
     }
 
 }

@@ -11,26 +11,28 @@ import Foundation
 class SearchViewModel {
 
     let reuseIdentifier = "SearchViewCell"
+    let defaults = UserDefaults.standard
     let searchDataKey = "SearchDataKey"
     
     var searchData: [String] = []
 
-    func retrieveInitialSearchData() {
-        if let data: Any = UserDefaults.standard.object(forKey: searchDataKey) {
+    func retrieveInitialSearchData(completion: () -> ()) {
+        if let data: Any = defaults.object(forKey: searchDataKey) {
             searchData = data as! [String]
+            completion()
         }
     }
 
-    private func saveSearch(text: String) {
-        // FIXME: - should not be case sensitive
-        let uniqueSearchData = searchData.filter { $0 != text }
+    func saveSearch(text: String, completion: () -> ()) {
+        let uniqueSearchData = searchData.filter { $0.lowercased() != text.lowercased() }
 
         searchData = uniqueSearchData
         searchData.insert(text, at: 0)
 
-        let defaults = UserDefaults.standard
         defaults.set(searchData, forKey: searchDataKey)
         defaults.synchronize()
+
+        completion()
     }
 
 }

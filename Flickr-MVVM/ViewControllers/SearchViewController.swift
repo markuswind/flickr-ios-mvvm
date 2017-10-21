@@ -33,6 +33,8 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
 
         configureTableView()
         configureSearchBar()
+
+        viewModel.retrieveInitialSearchData(completion: updateTableView)
     }
 
     private func configureTableView() {
@@ -41,7 +43,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
             tableView.dataSource = self
             tableView.backgroundColor = .white
 
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: viewModel.reuseIdentifier)
+            tableView.register(SearchViewCell.self, forCellReuseIdentifier: viewModel.reuseIdentifier)
         }
     }
 
@@ -56,9 +58,14 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     }
 
     // MARK: - User Interaction
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // TODO: - save search + push PhotoCollectionViewController
-        resetSearchBar()
+        if let searchText = searchBar.text {
+            viewModel.saveSearch(text: searchText, completion: updateTableView)
+
+            pushPhotoCollectionViewController(searchText: searchText)
+            resetSearchBar()
+        }
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -68,6 +75,39 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     private func resetSearchBar() {
         searchBar.resignFirstResponder()
         searchBar.text = nil
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        pushPhotoCollectionViewController(searchText: viewModel.searchData[indexPath.row])
+    }
+
+    // MARK - View Interaction
+
+    private func pushPhotoCollectionViewController(searchText: String) {
+        let viewModel = PhotoCollectionViewModel(searchText: searchText)
+        let viewController = PhotoCollectionViewController(withViewModel: viewModel)
+
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    private func updateTableView() {
+        tableView.reloadData()
+    }
+
+}
+
+// MARK: - UITableViewDataSource
+extension SearchViewController {
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.searchData.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.reuseIdentifier, for: indexPath) as! SearchViewCell
+        cell.textLabel!.text = viewModel.searchData[indexPath.row]
+
+        return cell
     }
 
 }

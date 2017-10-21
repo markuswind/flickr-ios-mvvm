@@ -14,10 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let photoCollectionViewController = createPhotoCollectionViewController()
+        let searchViewController = createSearchViewController()
 
         let navigationController = NavigationController()
-        navigationController.viewControllers.append(photoCollectionViewController)
+        navigationController.viewControllers.append(searchViewController)
 
         window = createWindow(rootViewController: navigationController)
         window!.makeKeyAndVisible()
@@ -25,11 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    private func createPhotoCollectionViewController() -> PhotoCollectionViewController {
-        let photoCollectionViewModel = PhotoCollectionViewModel(searchTerm: "Fruit")
-        let photoCollectionViewController = PhotoCollectionViewController(withViewModel: photoCollectionViewModel)
+    private func createSearchViewController() -> SearchViewController{
+        let searchViewModel = SearchViewModel()
+        let searchViewController = SearchViewController(withViewModel: searchViewModel)
 
-        return photoCollectionViewController
+        return searchViewController
     }
 
     private func createWindow(rootViewController: UIViewController) -> UIWindow {
