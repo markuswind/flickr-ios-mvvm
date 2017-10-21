@@ -18,7 +18,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
 
   init(withViewModel: SearchViewModel) {
     viewModel = withViewModel
-
+    
     super.init(style: .plain)
   }
 
@@ -38,13 +38,15 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
   }
 
   private func configureTableView() {
-    if let tableView = tableView {
-      tableView.delegate = self
-      tableView.dataSource = self
-      tableView.backgroundColor = .white
-
-      tableView.register(SearchViewCell.self, forCellReuseIdentifier: SearchViewModel.reuseIdentifier)
+    guard let tableView = tableView else {
+      fatalError("tableView could not be found")
     }
+
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.backgroundColor = .white
+
+    tableView.register(SearchViewCell.self, forCellReuseIdentifier: SearchViewModel.reuseIdentifier)
   }
 
   private func configureSearchBar() {
@@ -60,12 +62,14 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
   // MARK: - User Interaction
 
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    if let searchText = searchBar.text {
-      viewModel.saveSearch(text: searchText, completion: updateTableView)
-
-      pushPhotoCollectionViewController(searchText: searchText)
-      resetSearchBar()
+    guard let searchText = searchBar.text else {
+      fatalError("searBar.text could not be found")
     }
+
+    viewModel.saveSearch(text: searchText, completion: updateTableView)
+
+    pushPhotoCollectionViewController(searchText: searchText)
+    resetSearchBar()
   }
 
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

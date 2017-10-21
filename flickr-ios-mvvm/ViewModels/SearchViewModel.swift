@@ -18,10 +18,13 @@ class SearchViewModel {
   var searchData: [String] = []
 
   func retrieveInitialSearchData(completion: () -> ()) {
-    if let data: Any = defaults.object(forKey: searchDataKey) {
-      searchData = data as! [String]
-      completion()
+    guard let data = defaults.object(forKey: searchDataKey) else {
+      fatalError("could not load data forKey \(searchDataKey)")
     }
+
+    searchData = data as! [String]
+
+    completion()
   }
 
   func saveSearch(text: String, completion: () -> ()) {
