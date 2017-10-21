@@ -41,7 +41,7 @@ class PhotoCollectionViewController: UICollectionViewController {
             collectionView.dataSource = self
             collectionView.backgroundColor = Color.backgroundColor
 
-            collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: viewModel.reuseIdentifier)
+            collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewModel.reuseIdentifier)
         }
     }
 
@@ -97,7 +97,7 @@ extension PhotoCollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.reuseIdentifier, for: indexPath) as UICollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewModel.reuseIdentifier, for: indexPath) as UICollectionViewCell
 
         return cell
     }

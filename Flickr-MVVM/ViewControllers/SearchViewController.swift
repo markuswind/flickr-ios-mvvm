@@ -43,7 +43,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
             tableView.dataSource = self
             tableView.backgroundColor = .white
 
-            tableView.register(SearchViewCell.self, forCellReuseIdentifier: viewModel.reuseIdentifier)
+            tableView.register(SearchViewCell.self, forCellReuseIdentifier: SearchViewModel.reuseIdentifier)
         }
     }
 
@@ -91,12 +91,14 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     }
 
     private func updateTableView() {
+        // TODO: - insert new row instead of reloading?
         tableView.reloadData()
     }
 
 }
 
 // MARK: - UITableViewDataSource
+
 extension SearchViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,7 +106,7 @@ extension SearchViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.reuseIdentifier, for: indexPath) as! SearchViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchViewModel.reuseIdentifier, for: indexPath) as! SearchViewCell
         cell.textLabel!.text = viewModel.searchData[indexPath.row]
 
         return cell

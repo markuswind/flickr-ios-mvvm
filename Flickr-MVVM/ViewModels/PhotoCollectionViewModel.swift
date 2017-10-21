@@ -8,7 +8,7 @@
 
 class PhotoCollectionViewModel {
 
-    let reuseIdentifier = "PhotoCollectionViewCell"
+    static let reuseIdentifier = "PhotoCollectionViewCell"
 
     // TODO: - make these variables static?
     static let itemsPerPage = 30

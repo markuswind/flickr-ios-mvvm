@@ -10,7 +10,8 @@ import Foundation
 
 class SearchViewModel {
 
-    let reuseIdentifier = "SearchViewCell"
+    static let reuseIdentifier = "SearchViewCell"
+
     let defaults = UserDefaults.standard
     let searchDataKey = "SearchDataKey"
     
