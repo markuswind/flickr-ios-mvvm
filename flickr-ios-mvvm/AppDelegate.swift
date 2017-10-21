@@ -11,34 +11,34 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+  var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let searchViewController = createSearchViewController()
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    let searchViewController = createSearchViewController()
 
-        let navigationController = NavigationController()
-        navigationController.viewControllers.append(searchViewController)
+    let navigationController = NavigationController()
+    navigationController.viewControllers.append(searchViewController)
 
-        window = createWindow(rootViewController: navigationController)
-        window!.makeKeyAndVisible()
+    window = createWindow(rootViewController: navigationController)
+    window!.makeKeyAndVisible()
 
-        return true
-    }
+    return true
+  }
 
-    private func createSearchViewController() -> SearchViewController{
-        let searchViewModel = SearchViewModel()
-        let searchViewController = SearchViewController(withViewModel: searchViewModel)
+  private func createSearchViewController() -> SearchViewController{
+    let searchViewModel = SearchViewModel()
+    let searchViewController = SearchViewController(withViewModel: searchViewModel)
 
-        return searchViewController
-    }
+    return searchViewController
+  }
 
-    private func createWindow(rootViewController: UIViewController) -> UIWindow {
-        let window = UIWindow(frame: UIScreen.main.bounds)
+  private func createWindow(rootViewController: UIViewController) -> UIWindow {
+    let window = UIWindow(frame: UIScreen.main.bounds)
 
-        window.tintColor = UIColor.darkGray
-        window.rootViewController = rootViewController
+    window.tintColor = UIColor.darkGray
+    window.rootViewController = rootViewController
 
-        return window
-    }
+    return window
+  }
 
 }

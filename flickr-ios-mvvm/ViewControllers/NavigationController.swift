@@ -10,18 +10,18 @@ import UIKit
 
 class NavigationController: UINavigationController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-        configureNavigationBarStyling()
-    }
+    configureNavigationBarStyling()
+  }
 
-    private func configureNavigationBarStyling() {
-        navigationBar.barStyle = .black
-        navigationBar.isTranslucent = true
+  private func configureNavigationBarStyling() {
+    navigationBar.barStyle = .black
+    navigationBar.isTranslucent = true
 
-        navigationBar.barTintColor = Color.primaryColor
-        navigationBar.tintColor = Color.secondaryColor
-    }
+    navigationBar.barTintColor = Color.primaryColor
+    navigationBar.tintColor = Color.secondaryColor
+  }
 
 }

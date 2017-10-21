@@ -8,20 +8,20 @@
 
 class Photo {
 
-    private let farm: Int
-    private let server: Int
-    private let id: Int
-    private let secret: String
-    private let title: String
-    private let imageUrl: String
+  private let farm: Int
+  private let server: Int
+  private let id: Int
+  private let secret: String
+  private let title: String
+  private let imageUrl: String
 
-    init(farm: Int, server: Int, id: Int, secret: String, title: String) {
-        self.farm = farm
-        self.server = server
-        self.id = id
-        self.secret = secret
-        self.title = title
-        self.imageUrl = "https://farm\(farm).static.flickr.com/\(server)/\(id)_\(secret).jpg"
-    }
+  init(farm: Int, server: Int, id: Int, secret: String, title: String) {
+    self.farm = farm
+    self.server = server
+    self.id = id
+    self.secret = secret
+    self.title = title
+    self.imageUrl = "https://farm\(farm).static.flickr.com/\(server)/\(id)_\(secret).jpg"
+  }
 
 }

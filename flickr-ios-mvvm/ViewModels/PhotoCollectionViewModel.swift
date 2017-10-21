@@ -8,22 +8,22 @@
 
 class PhotoCollectionViewModel {
 
-    static let reuseIdentifier = "PhotoCollectionViewCell"
+  static let reuseIdentifier = "PhotoCollectionViewCell"
 
-    // TODO: - make these variables static?
-    static let itemsPerPage = 30
-    static let itemsPerRow = 2
-    static let itemsPerSection = 10
-    static let itemsTreshold = itemsPerPage / 2
+  // TODO: - make these variables static?
+  static let itemsPerPage = 30
+  static let itemsPerRow = 2
+  static let itemsPerSection = 10
+  static let itemsTreshold = itemsPerPage / 2
 
-    let photosSearchText: String!
+  let photosSearchText: String!
 
-    var photosData: [Photo] = []
-    var currentPage = 0
-    var totalPages = 0
+  var photosData: [Photo] = []
+  var currentPage = 0
+  var totalPages = 0
 
-    init(searchText: String) {
-        photosSearchText = searchText
-    }
+  init(searchText: String) {
+    photosSearchText = searchText
+  }
 
 }
