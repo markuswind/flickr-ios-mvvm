@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 
-  private func createSearchViewController() -> SearchViewController{
+  private func createSearchViewController() -> SearchViewController {
     let searchViewModel = SearchViewModel()
     let searchViewController = SearchViewController(withViewModel: searchViewModel)
 
