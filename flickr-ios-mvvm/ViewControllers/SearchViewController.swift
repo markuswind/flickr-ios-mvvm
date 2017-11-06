@@ -10,6 +10,8 @@ import UIKit
 
 class SearchViewController: UITableViewController, UISearchBarDelegate {
 
+  // MARK: - Properties
+
   fileprivate let viewModel: SearchViewModel!
 
   let searchBar = UISearchBar()
