@@ -10,13 +10,13 @@ class PhotoCollectionViewModel {
 
   static let reuseIdentifier = "PhotoCollectionViewCell"
 
-  // TODO: - make these variables static?
   static let itemsPerPage = 30
   static let itemsPerRow = 2
   static let itemsPerSection = 10
   static let itemsTreshold = itemsPerPage / 2
 
   let photosSearchText: String!
+  let photosStore: PhotosStore!
 
   var photosData: [Photo] = []
   var currentPage = 0
@@ -24,6 +24,7 @@ class PhotoCollectionViewModel {
 
   init(searchText: String) {
     photosSearchText = searchText
+    photosStore = PhotosStore()
   }
 
 }
