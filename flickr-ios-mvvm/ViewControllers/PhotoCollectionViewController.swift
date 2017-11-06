@@ -10,7 +10,10 @@ import UIKit
 
 class PhotoCollectionViewController: UICollectionViewController {
 
+  // MARK: Properties
+
   fileprivate let viewModel: PhotoCollectionViewModel!
+  fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
 
   // MARK: - Lifecycle
 
@@ -45,7 +48,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     collectionView.dataSource = self
     collectionView.backgroundColor = Color.backgroundColor
 
-    collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewModel.reuseIdentifier)
+    collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewModel.reuseIdentifier)
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -63,7 +66,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     let treshHoldItem = (viewModel.currentPage * itemsPerPage) - itemsTreshold
 
     if (currentItem > treshHoldItem) && (viewModel.currentPage < viewModel.totalPages) {
-//      viewModel.requestNextPhotosPage(completion: updateCollectionView)
+      viewModel.requestNextPhotosPage(completion: updateCollectionView)
     }
   }
 
@@ -102,9 +105,34 @@ extension PhotoCollectionViewController {
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewModel.reuseIdentifier, for: indexPath) as UICollectionViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewModel.reuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
 
     return cell
   }
 
 }
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension PhotoCollectionViewController: UICollectionViewDelegateFlowLayout {
+
+  // FIXME: - fix updating width/height when rotating screen
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let itemsPerRow = CGFloat(PhotoCollectionViewModel.itemsPerRow)
+    let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+
+    let availableWidth = view.frame.width - paddingSpace
+    let widthPerItem = availableWidth / itemsPerRow
+
+    return CGSize(width: widthPerItem, height: widthPerItem)
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return sectionInsets
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return sectionInsets.left
+  }
+
+}
+

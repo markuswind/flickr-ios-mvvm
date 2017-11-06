@@ -38,10 +38,12 @@ class PhotoCollectionViewModel {
   func requestNextPhotosPage(completion:@escaping () -> ()) {
     currentPage += 1
 
-    photosStore.requestPhotos(searchText: photosSearchText, page: currentPage, itemsPerPage: PhotoCollectionViewModel.itemsPerPage) { (data) in
-      self.photosData += data
+    photosStore.requestPhotos(searchText: photosSearchText, page: currentPage, itemsPerPage: PhotoCollectionViewModel.itemsPerPage) { (photos, metaData) in
+      self.photosData.append(contentsOf: photos)
 
-      print(self.photosData)
+      self.currentPage = metaData["currentPage"] as! Int
+      self.totalPages = metaData["totalPages"] as! Int
+
       completion()
     }
   }
