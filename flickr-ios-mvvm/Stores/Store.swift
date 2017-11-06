@@ -35,7 +35,7 @@ class Store {
   // MARK: - API Requests
 
   func getRequest(url: String, completion:@escaping (JSON) -> ()) {
-    let url = url + "&api_key=\(apiKey)"
+    let url = url + "&api_key=\(apiKey!)"
 
     Alamofire.request(url, method: .get).validate().responseJSON { response in
       switch response.result {

@@ -48,8 +48,8 @@ class PhotoCollectionViewController: UICollectionViewController {
     collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewModel.reuseIdentifier)
   }
 
-  override func viewDidLayoutSubviews() {
-    // TODO: - load initial photos data
+  override func viewDidAppear(_ animated: Bool) {
+    viewModel.requestNextPhotosPage(completion: updateCollectionView)
   }
 
   // MARK: - User Interaction
@@ -63,7 +63,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     let treshHoldItem = (viewModel.currentPage * itemsPerPage) - itemsTreshold
 
     if (currentItem > treshHoldItem) && (viewModel.currentPage < viewModel.totalPages) {
-      // TODO: - request new page with images from viewModel && call updateCollectionView on completion
+//      viewModel.requestNextPhotosPage(completion: updateCollectionView)
     }
   }
 
@@ -85,7 +85,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     }
   }
 
-  // TODO: - Add interactions for lazy loading + opening image
+  // TODO: - Add interaction for opening image(s)
 
 }
 

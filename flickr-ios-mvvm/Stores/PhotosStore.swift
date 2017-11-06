@@ -12,7 +12,7 @@ class PhotosStore: Store {
 
   // MARK: - Properties
 
-  let methodURL = "?method=flickr.photos.search&format=json&nojsoncallback=1"
+  let methodURL = "method=flickr.photos.search&format=json&nojsoncallback=1"
 
   // MARK - API Request
 
@@ -22,7 +22,7 @@ class PhotosStore: Store {
     getRequest(url: url) { (value) in
       var result: [Photo] = []
 
-      let photos = value["photos"].arrayValue
+      let photos = value["photos"]["photo"].arrayValue
       for photo in photos {
         result.append(Photo(values: photo))
       }
