@@ -6,6 +6,7 @@
 //  Copyright © 2017 Markus Wind. All rights reserved.
 //
 
+import AlamofireImage
 import UIKit
 
 class PhotoCollectionViewController: UICollectionViewController {
@@ -106,6 +107,12 @@ extension PhotoCollectionViewController {
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewModel.reuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
+
+    let index = indexPath.row + (indexPath.section * PhotoCollectionViewModel.itemsPerSection)
+    let imageURL = viewModel.photosData[index].imageURL()
+
+    cell.imageView.image = nil
+    cell.imageView.af_setImage(withURL: URL(string: imageURL)!)
 
     return cell
   }
