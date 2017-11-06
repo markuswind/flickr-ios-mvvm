@@ -20,8 +20,8 @@ class Store {
   // MARK: - Lifecycle
 
   init() {
-    guard let path = Bundle.main.path(forResource: "configuration", ofType: "plist") else {
-      fatalError("You probably forgot to add a configuration file..")
+    guard let path = Bundle.main.path(forResource: "Configuration", ofType: "plist") else {
+      fatalError("You probably forgot to add a configuration file.. (see: SupportingFile/Configuration.plist.example)")
     }
 
     guard let configDictionary = NSDictionary(contentsOfFile: path) else {
