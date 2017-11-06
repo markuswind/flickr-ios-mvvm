@@ -75,6 +75,14 @@
 			path = Stores;
 			sourceTree = "<group>";
 		};
+		803C3D231FB0ACFA00A39DB5 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				807662751F9A052D003A30C9 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		8046F12D1F9B9B720025F906 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,13 +111,13 @@
 		807662681F9A052D003A30C9 /* flickr-ios-mvvm */ = {
 			isa = PBXGroup;
 			children = (
-				807662751F9A052D003A30C9 /* Info.plist */,
 				807662691F9A052D003A30C9 /* AppDelegate.swift */,
 				807662701F9A052D003A30C9 /* Assets.xcassets */,
 				807662721F9A052D003A30C9 /* LaunchScreen.storyboard */,
 				807662801F9A09A5003A30C9 /* Helpers */,
 				8076627B1F9A05C6003A30C9 /* Models */,
 				803C3D201FB0AA2F00A39DB5 /* Stores */,
+				803C3D231FB0ACFA00A39DB5 /* SupportingFiles */,
 				8046F12D1F9B9B720025F906 /* ViewCells */,
 				8076627C1F9A05CC003A30C9 /* ViewControllers */,
 				8076627D1F9A05D3003A30C9 /* ViewModels */,
@@ -368,7 +376,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/flickr-ios-mvvm/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/flickr-ios-mvvm/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.markuswind.flick-ios-mvvm";
@@ -387,7 +395,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/flickr-ios-mvvm/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/flickr-ios-mvvm/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.markuswind.flick-ios-mvvm";
