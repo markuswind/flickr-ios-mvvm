@@ -13,13 +13,16 @@ class Store {
 
   // MARK: - Properties
 
-  let baseURL = "https://api.flickr.com/services/rest/?"
-  let apiKey: String!
-  let apiSecret: String!
+  let baseURL = "https://api.flickr.com/services/rest/"
+  let format = "&format=json&nojsoncallback=1"
+
+  let method: String
+  let apiKey: String
+  let apiSecret: String
 
   // MARK: - Lifecycle
 
-  init() {
+  init(method: String) {
     guard let path = Bundle.main.path(forResource: "Configuration", ofType: "plist") else {
       fatalError("You probably forgot to add a configuration file.. (see: SupportingFile/Configuration.plist.example)")
     }
@@ -28,14 +31,20 @@ class Store {
       fatalError("Something went wrong when loading configurion file..")
     }
 
-    apiKey = configDictionary["apiKey"] as! String
-    apiSecret = configDictionary["apiSecret"] as! String
+    guard let apiKey = configDictionary["apiKey"] as? String,
+          let apiSecret = configDictionary["apiSecret"] as? String else {
+      fatalError("Something went wrong when loading apiKey/apiSecret..")
+    }
+
+    self.apiKey = apiKey
+    self.apiSecret = apiSecret
+    self.method = method
   }
 
   // MARK: - API Requests
 
-  func getRequest(url: String, completion:@escaping (JSON) -> ()) {
-    let url = url + "&api_key=\(apiKey!)"
+  func getRequest(parameters: String, completion:@escaping (JSON) -> ()) {
+    let url = baseURL + "?method=\(method)\(format)\(parameters)&api_key=\(apiKey)"
 
     Alamofire.request(url, method: .get).validate().responseJSON { response in
       switch response.result {

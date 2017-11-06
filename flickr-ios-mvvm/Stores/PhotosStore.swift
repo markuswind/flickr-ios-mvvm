@@ -12,20 +12,24 @@ class PhotosStore: Store {
 
   // MARK: - Properties
 
-  let methodURL = "method=flickr.photos.search&format=json&nojsoncallback=1"
+  init() {
+    super.init(method: "flickr.photos.search")
+  }
 
-  // MARK - API Request
+  // MARK: - API Request
 
   func requestPhotos(searchText: String, page: Int, itemsPerPage: Int, completion:@escaping ([Photo], [String: Any]) -> ()) {
-    let url = baseURL + methodURL + "&text=\(searchText)&page=\(page)&per_page=\(itemsPerPage)"
+    let parameters = "&text=\(searchText)&page=\(page)&per_page=\(itemsPerPage)"
 
-    getRequest(url: url) { (value) in
+    getRequest(parameters: parameters) { (value) in
       let photos = self.parsePhotos(value: value)
       let metaData = self.parseMetaData(value: value)
 
       completion(photos, metaData)
     }
   }
+
+  // MARK: Result Parsing
 
   private func parsePhotos(value: JSON) -> [Photo] {
     var photos: [Photo] = []
