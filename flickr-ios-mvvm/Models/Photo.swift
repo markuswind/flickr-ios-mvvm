@@ -6,22 +6,30 @@
 //  Copyright © 2017 Markus Wind. All rights reserved.
 //
 
-class Photo {
+import SwiftyJSON
+
+class Photo: Model {
 
   private let farm: Int
   private let server: Int
   private let id: Int
   private let secret: String
   private let title: String
-  private let imageUrl: String
 
-  init(farm: Int, server: Int, id: Int, secret: String, title: String) {
-    self.farm = farm
-    self.server = server
-    self.id = id
-    self.secret = secret
-    self.title = title
-    self.imageUrl = "https://farm\(farm).static.flickr.com/\(server)/\(id)_\(secret).jpg"
+  required init(values: JSON) {
+    self.farm = values["farm"].intValue
+    self.server = values["server"].intValue
+    self.id = values["id"].intValue
+    self.secret = values["secret"].stringValue
+    self.title = values["title"].stringValue
+  }
+
+}
+
+extension Photo {
+
+  func imageURL() -> String {
+    return "https://farm\(farm).static.flickr.com/\(server)/\(id)_\(secret).jpg"
   }
 
 }

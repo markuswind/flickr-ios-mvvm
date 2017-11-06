@@ -18,6 +18,7 @@
 		805D754C1F9A3B22000ED9CF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 805D754A1F9A3B22000ED9CF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		805D754F1F9A4967000ED9CF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805D754E1F9A4967000ED9CF /* SearchViewController.swift */; };
 		805D75511F9A4A42000ED9CF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805D75501F9A4A42000ED9CF /* SearchViewModel.swift */; };
+		806FE58A1FB0C1CE0065D312 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FE5891FB0C1CE0065D312 /* Model.swift */; };
 		8076626A1F9A052D003A30C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807662691F9A052D003A30C9 /* AppDelegate.swift */; };
 		807662711F9A052D003A30C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 807662701F9A052D003A30C9 /* Assets.xcassets */; };
 		807662741F9A052D003A30C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807662721F9A052D003A30C9 /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 		805D754A1F9A3B22000ED9CF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		805D754E1F9A4967000ED9CF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		805D75501F9A4A42000ED9CF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; tabWidth = 2; };
+		806FE5891FB0C1CE0065D312 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		807662661F9A052D003A30C9 /* flick-ios-mvvm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flick-ios-mvvm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807662691F9A052D003A30C9 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 2; };
 		807662701F9A052D003A30C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				807662871F9A0C3B003A30C9 /* Photo.swift */,
+				806FE5891FB0C1CE0065D312 /* Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				807662881F9A0C3B003A30C9 /* Photo.swift in Sources */,
 				803C3D291FB0B3EC00A39DB5 /* PhotosStore.swift in Sources */,
 				805D754F1F9A4967000ED9CF /* SearchViewController.swift in Sources */,
+				806FE58A1FB0C1CE0065D312 /* Model.swift in Sources */,
 				805D75511F9A4A42000ED9CF /* SearchViewModel.swift in Sources */,
 				8046F12F1F9B9B860025F906 /* SearchViewCell.swift in Sources */,
 				807662841F9A0ABF003A30C9 /* PhotoCollectionViewController.swift in Sources */,

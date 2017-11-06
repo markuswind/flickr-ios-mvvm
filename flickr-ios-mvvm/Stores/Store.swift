@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import SwiftyJSON
 
 class Store {
 
@@ -33,17 +34,16 @@ class Store {
 
   // MARK: - API Requests
 
-  func getRequest(url: String, completion:@escaping () -> ()) {
+  func getRequest(url: String, completion:@escaping (JSON) -> ()) {
     let url = url + "&api_key=\(apiKey)"
 
     Alamofire.request(url, method: .get).validate().responseJSON { response in
       switch response.result {
         case .success(let value):
-          print("value", value)
-          completion()
+          completion(JSON(value))
         case .failure(let error):
           print("Failed request with given url: \(url)", error)
-          completion()
+          completion(JSON.null)
       }
     }
   }
