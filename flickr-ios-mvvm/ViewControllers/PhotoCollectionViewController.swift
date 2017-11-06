@@ -56,7 +56,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     viewModel.requestNextPhotosPage(completion: updateCollectionView)
   }
 
-  // MARK: - User Interaction
+  // MARK: - Lazy Loading
 
   override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
     let itemsPerPage = PhotoCollectionViewModel.itemsPerPage
@@ -89,7 +89,35 @@ class PhotoCollectionViewController: UICollectionViewController {
     }
   }
 
-  // TODO: - Add interaction for opening image(s)
+  // MARK: - Simple Fullscreen Image
+
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let selectedCell = collectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
+    let imageView = selectedCell.imageView
+
+    showFullscreenImage(image: imageView.image!)
+  }
+
+  private func showFullscreenImage(image: UIImage) {
+    let tap = UITapGestureRecognizer(target: self, action: #selector(PhotoCollectionViewController.dismissFullscreenImage))
+    let imageView = UIImageView(image: image)
+
+    imageView.frame = UIScreen.main.bounds
+    imageView.backgroundColor = .black
+    imageView.contentMode = .scaleAspectFit
+    imageView.isUserInteractionEnabled = true
+    imageView.addGestureRecognizer(tap)
+
+    view.addSubview(imageView)
+    navigationController?.isNavigationBarHidden = true
+  }
+
+  @objc
+  fileprivate func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+    self.navigationController?.isNavigationBarHidden = false
+
+    sender.view?.removeFromSuperview()
+  }
 
 }
 
