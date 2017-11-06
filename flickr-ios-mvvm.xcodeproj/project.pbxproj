@@ -11,6 +11,8 @@
 		803C3D251FB0ADCF00A39DB5 /* configuration.plist.example.plist in Resources */ = {isa = PBXBuildFile; fileRef = 803C3D241FB0ADCF00A39DB5 /* configuration.plist.example.plist */; };
 		803C3D271FB0AE5000A39DB5 /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 803C3D261FB0AE5000A39DB5 /* configuration.plist */; };
 		803C3D291FB0B3EC00A39DB5 /* PhotosStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803C3D281FB0B3EC00A39DB5 /* PhotosStore.swift */; };
+		803C3D2D1FB0BBB700A39DB5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 803C3D2B1FB0BBB200A39DB5 /* SwiftyJSON.framework */; };
+		803C3D2E1FB0BBB700A39DB5 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 803C3D2B1FB0BBB200A39DB5 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8046F12F1F9B9B860025F906 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046F12E1F9B9B860025F906 /* SearchViewCell.swift */; };
 		805D754B1F9A3B22000ED9CF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805D754A1F9A3B22000ED9CF /* Alamofire.framework */; };
 		805D754C1F9A3B22000ED9CF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 805D754A1F9A3B22000ED9CF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -33,6 +35,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				803C3D2E1FB0BBB700A39DB5 /* SwiftyJSON.framework in Embed Frameworks */,
 				805D754C1F9A3B22000ED9CF /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -45,6 +48,7 @@
 		803C3D241FB0ADCF00A39DB5 /* configuration.plist.example.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = configuration.plist.example.plist; sourceTree = "<group>"; };
 		803C3D261FB0AE5000A39DB5 /* configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
 		803C3D281FB0B3EC00A39DB5 /* PhotosStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStore.swift; sourceTree = "<group>"; };
+		803C3D2B1FB0BBB200A39DB5 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		8046F12E1F9B9B860025F906 /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; tabWidth = 2; };
 		805D754A1F9A3B22000ED9CF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		805D754E1F9A4967000ED9CF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
@@ -67,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				805D754B1F9A3B22000ED9CF /* Alamofire.framework in Frameworks */,
+				803C3D2D1FB0BBB700A39DB5 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +97,15 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		803C3D2A1FB0BBB100A39DB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				805D754A1F9A3B22000ED9CF /* Alamofire.framework */,
+				803C3D2B1FB0BBB200A39DB5 /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8046F12D1F9B9B720025F906 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,9 +117,9 @@
 		8076625D1F9A052D003A30C9 = {
 			isa = PBXGroup;
 			children = (
-				805D754A1F9A3B22000ED9CF /* Alamofire.framework */,
 				807662681F9A052D003A30C9 /* flickr-ios-mvvm */,
 				807662671F9A052D003A30C9 /* Products */,
+				803C3D2A1FB0BBB100A39DB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
