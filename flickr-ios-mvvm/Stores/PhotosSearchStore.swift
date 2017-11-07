@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 
-class PhotosSearchStore: Store {
+class PhotosSearchStore: PhotosStore {
 
   // MARK: -  Lifecycle
 
@@ -27,28 +27,6 @@ class PhotosSearchStore: Store {
 
       completion(photos, metaData)
     }
-  }
-
-  // MARK: - Result Parsing
-  // FIXME: - duplicate code, see PhotosRecentStore
-
-  private func parsePhotos(value: JSON) -> [Photo] {
-    var photos: [Photo] = []
-
-    for photoValues in value["photos"]["photo"].arrayValue {
-      photos.append(Photo(values: photoValues))
-    }
-
-    return photos
-  }
-
-  private func parseMetaData(value: JSON) -> [String: Any] {
-    var metaData: [String: Int] = [:]
-
-    metaData["currentPage"] = value["photos"]["page"].intValue
-    metaData["totalPages"] = value["photos"]["pages"].intValue
-
-    return metaData
   }
 
 }

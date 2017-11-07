@@ -20,6 +20,7 @@
 		8045EACB1FB2363700E29869 /* PhotosSearchCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8045EACA1FB2363700E29869 /* PhotosSearchCollectionViewModel.swift */; };
 		8045EACD1FB243EA00E29869 /* PhotosRecentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8045EACC1FB243EA00E29869 /* PhotosRecentStore.swift */; };
 		8045EACF1FB2448F00E29869 /* PhotosRecentCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8045EACE1FB2448F00E29869 /* PhotosRecentCollectionViewModel.swift */; };
+		8045EAD11FB24A2900E29869 /* PhotosStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8045EAD01FB24A2900E29869 /* PhotosStore.swift */; };
 		8046F12F1F9B9B860025F906 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046F12E1F9B9B860025F906 /* SearchViewCell.swift */; };
 		805D754B1F9A3B22000ED9CF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805D754A1F9A3B22000ED9CF /* Alamofire.framework */; };
 		805D754C1F9A3B22000ED9CF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 805D754A1F9A3B22000ED9CF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -65,6 +66,7 @@
 		8045EACA1FB2363700E29869 /* PhotosSearchCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSearchCollectionViewModel.swift; sourceTree = "<group>"; };
 		8045EACC1FB243EA00E29869 /* PhotosRecentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRecentStore.swift; sourceTree = "<group>"; };
 		8045EACE1FB2448F00E29869 /* PhotosRecentCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRecentCollectionViewModel.swift; sourceTree = "<group>"; };
+		8045EAD01FB24A2900E29869 /* PhotosStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStore.swift; sourceTree = "<group>"; };
 		8046F12E1F9B9B860025F906 /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; tabWidth = 2; };
 		805D754A1F9A3B22000ED9CF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		805D754E1F9A4967000ED9CF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				803C3D211FB0AA4000A39DB5 /* Store.swift */,
+				8045EAD01FB24A2900E29869 /* PhotosStore.swift */,
 				803C3D281FB0B3EC00A39DB5 /* PhotosSearchStore.swift */,
 				8045EACC1FB243EA00E29869 /* PhotosRecentStore.swift */,
 			);
@@ -299,6 +302,7 @@
 				803C3D221FB0AA4000A39DB5 /* Store.swift in Sources */,
 				8045EAC91FB2227D00E29869 /* TabBarController.swift in Sources */,
 				8076627F1F9A07AC003A30C9 /* NavigationController.swift in Sources */,
+				8045EAD11FB24A2900E29869 /* PhotosStore.swift in Sources */,
 				8076626A1F9A052D003A30C9 /* AppDelegate.swift in Sources */,
 				8045EACD1FB243EA00E29869 /* PhotosRecentStore.swift in Sources */,
 				807662821F9A09BF003A30C9 /* ColorConstants.swift in Sources */,
