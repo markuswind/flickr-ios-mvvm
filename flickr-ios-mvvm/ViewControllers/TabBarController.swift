@@ -10,6 +10,8 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
+  // MARK: - View Lifecycle
+
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
@@ -19,7 +21,9 @@ class TabBarController: UITabBarController {
     self.viewControllers = [photosRecentNavigationController, searchNavigationViewController]
   }
 
-   private func createPhotosRecentNavigationController() -> NavigationController {
+  // MARK: - NavigationControllers Initializers
+
+  private func createPhotosRecentNavigationController() -> NavigationController {
     let photosRecentViewModel = PhotosRecentCollectionViewModel()
     let photosCollectionViewController = PhotosCollectionViewController(withViewModel: photosRecentViewModel)
     let photosRecentNavigationController = NavigationController(rootViewController: photosCollectionViewController)
@@ -38,6 +42,8 @@ class TabBarController: UITabBarController {
 
     return searchNavigationController
   }
+
+  // MARK: - TabBarItem initializer
 
   private func createTabBarItem(title: String, imageName: String) -> UITabBarItem {
     let image = UIImage(named: imageName)

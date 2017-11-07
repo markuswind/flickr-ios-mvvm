@@ -10,6 +10,8 @@ import UIKit
 
 class NavigationController: UINavigationController {
 
+  // MARK: - View LifeCycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
