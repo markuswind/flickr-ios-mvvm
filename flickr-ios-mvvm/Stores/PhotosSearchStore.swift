@@ -10,7 +10,7 @@ import SwiftyJSON
 
 class PhotosSearchStore: PhotosStore {
 
-  // MARK: -  Lifecycle
+  // MARK: - Lifecycle
 
   init() {
     super.init(method: "flickr.photos.search")

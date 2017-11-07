@@ -8,17 +8,16 @@
 
 import Foundation
 
-// TODO: - rename this + stores!
-
 class PhotosSearchCollectionViewModel: PhotosCollectionViewModel {
 
   // MARK: - Static Properties
-  var reuseIdentifier = "PhotosSearchViewCell"
 
-  var itemsPerPage = 30
-  var itemsPerRow = 2
-  var itemsPerSection = 10
-  var itemsTreshold = 30 / 2
+  let reuseIdentifier = "PhotosSearchViewCell"
+
+  let itemsPerPage = 30
+  let itemsPerRow = 2
+  let itemsPerSection = 10
+  let itemsTreshold = 15
 
   // MARK: - Properties
 

@@ -11,12 +11,13 @@ import Foundation
 class PhotosRecentCollectionViewModel: PhotosCollectionViewModel {
 
   // MARK: - Static Properties
-  var reuseIdentifier = "PhotosRecentViewCell"
 
-  var itemsPerPage = 30
-  var itemsPerRow = 2
-  var itemsPerSection = 10
-  var itemsTreshold = 30 / 2
+  let reuseIdentifier = "PhotosRecentViewCell"
+
+  let itemsPerPage = 30
+  let itemsPerRow = 2
+  let itemsPerSection = 10
+  let itemsTreshold = 15
 
   // MARK: - Properties
 

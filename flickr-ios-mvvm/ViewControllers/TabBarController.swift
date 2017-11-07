@@ -24,8 +24,7 @@ class TabBarController: UITabBarController {
     let photosCollectionViewController = PhotosCollectionViewController(withViewModel: photosRecentViewModel)
     let photosRecentNavigationController = NavigationController(rootViewController: photosCollectionViewController)
 
-    let tabBarItem = UITabBarItem(title: "Recent", image: nil, selectedImage: nil)
-    photosRecentNavigationController.tabBarItem = tabBarItem
+    photosRecentNavigationController.tabBarItem = createTabBarItem(title: "Recent", imageName: "RecentIcon")
 
     return photosRecentNavigationController
   }
@@ -35,10 +34,16 @@ class TabBarController: UITabBarController {
     let searchViewController = SearchViewController(withViewModel: searchViewModel)
     let searchNavigationController = NavigationController(rootViewController: searchViewController)
 
-    let tabBarItem = UITabBarItem(title: "Search", image: nil, selectedImage: nil)
-    searchNavigationController.tabBarItem = tabBarItem
+    searchNavigationController.tabBarItem = createTabBarItem(title: "Search", imageName: "SearchIcon")
 
     return searchNavigationController
+  }
+
+  private func createTabBarItem(title: String, imageName: String) -> UITabBarItem {
+    let image = UIImage(named: imageName)
+    let selectedImage = UIImage(named: imageName + "Filled")
+
+    return UITabBarItem(title: title, image: image, selectedImage: selectedImage)
   }
 
 }
