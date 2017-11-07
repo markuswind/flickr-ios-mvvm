@@ -30,6 +30,7 @@ class PhotosSearchStore: Store {
   }
 
   // MARK: - Result Parsing
+  // FIXME: - duplicate code, see PhotosRecentStore
 
   private func parsePhotos(value: JSON) -> [Photo] {
     var photos: [Photo] = []

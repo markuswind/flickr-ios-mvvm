@@ -11,7 +11,7 @@ import UIKit
 
 class PhotosCollectionViewController: UICollectionViewController {
 
-  // MARK: Properties
+  // MARK: - Properties
 
   fileprivate let viewModel: PhotosCollectionViewModel!
   fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
