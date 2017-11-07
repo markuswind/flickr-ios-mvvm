@@ -16,6 +16,7 @@
 		803C3D291FB0B3EC00A39DB5 /* PhotosStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803C3D281FB0B3EC00A39DB5 /* PhotosStore.swift */; };
 		803C3D2D1FB0BBB700A39DB5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 803C3D2B1FB0BBB200A39DB5 /* SwiftyJSON.framework */; };
 		803C3D2E1FB0BBB700A39DB5 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 803C3D2B1FB0BBB200A39DB5 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8045EAC91FB2227D00E29869 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8045EAC81FB2227D00E29869 /* TabBarController.swift */; };
 		8046F12F1F9B9B860025F906 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046F12E1F9B9B860025F906 /* SearchViewCell.swift */; };
 		805D754B1F9A3B22000ED9CF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805D754A1F9A3B22000ED9CF /* Alamofire.framework */; };
 		805D754C1F9A3B22000ED9CF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 805D754A1F9A3B22000ED9CF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -57,6 +58,7 @@
 		803C3D261FB0AE5000A39DB5 /* Configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		803C3D281FB0B3EC00A39DB5 /* PhotosStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStore.swift; sourceTree = "<group>"; };
 		803C3D2B1FB0BBB200A39DB5 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		8045EAC81FB2227D00E29869 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8046F12E1F9B9B860025F906 /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; tabWidth = 2; };
 		805D754A1F9A3B22000ED9CF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		805D754E1F9A4967000ED9CF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
@@ -177,6 +179,7 @@
 				8076627E1F9A07AC003A30C9 /* NavigationController.swift */,
 				807662831F9A0ABF003A30C9 /* PhotoCollectionViewController.swift */,
 				805D754E1F9A4967000ED9CF /* SearchViewController.swift */,
+				8045EAC81FB2227D00E29869 /* TabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				8046F12F1F9B9B860025F906 /* SearchViewCell.swift in Sources */,
 				807662841F9A0ABF003A30C9 /* PhotoCollectionViewController.swift in Sources */,
 				803C3D221FB0AA4000A39DB5 /* Store.swift in Sources */,
+				8045EAC91FB2227D00E29869 /* TabBarController.swift in Sources */,
 				8076627F1F9A07AC003A30C9 /* NavigationController.swift in Sources */,
 				8076626A1F9A052D003A30C9 /* AppDelegate.swift in Sources */,
 				807662821F9A09BF003A30C9 /* ColorConstants.swift in Sources */,

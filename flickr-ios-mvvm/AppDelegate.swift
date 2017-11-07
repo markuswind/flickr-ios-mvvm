@@ -14,22 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    let searchViewController = createSearchViewController()
-
-    let navigationController = NavigationController()
-    navigationController.viewControllers.append(searchViewController)
-
-    window = createWindow(rootViewController: navigationController)
+    window = createWindow(rootViewController: TabBarController())
     window!.makeKeyAndVisible()
 
     return true
-  }
-
-  private func createSearchViewController() -> SearchViewController {
-    let searchViewModel = SearchViewModel()
-    let searchViewController = SearchViewController(withViewModel: searchViewModel)
-
-    return searchViewController
   }
 
   private func createWindow(rootViewController: UIViewController) -> UIWindow {
