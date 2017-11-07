@@ -1,25 +1,25 @@
 //
-//  PhotosStore.swift
+//  PhotosPopularStore.swift
 //  flick-ios-mvvm
 //
-//  Created by Markus Wind on 06/11/2017.
+//  Created by Markus Wind on 07/11/2017.
 //  Copyright © 2017 Markus Wind. All rights reserved.
 //
 
 import SwiftyJSON
 
-class PhotosStore: Store {
+class PhotosRecentStore: Store {
 
-  // MARK: Lifecycle
+  // MARK: - Lifecycle
 
   init() {
-    super.init(method: "flickr.photos.search")
+    super.init(method: "flickr.photos.getRecent")
   }
 
   // MARK: - API Request
 
-  func requestPhotos(searchText: String, page: Int, itemsPerPage: Int, completion:@escaping ([Photo], [String: Any]) -> ()) {
-    let parameters = "&text=\(searchText)&page=\(page)&per_page=\(itemsPerPage)"
+  func requestPhotos(page: Int, itemsPerPage: Int, completion:@escaping ([Photo], [String: Any]) -> ()) {
+    let parameters = "&page=\(page)&per_page=\(itemsPerPage)"
 
     getRequest(parameters: parameters) { (value) in
       let photos = self.parsePhotos(value: value)
@@ -29,7 +29,7 @@ class PhotosStore: Store {
     }
   }
 
-  // MARK: Result Parsing
+  // MARK: - Result Parsing
 
   private func parsePhotos(value: JSON) -> [Photo] {
     var photos: [Photo] = []
@@ -51,3 +51,4 @@ class PhotosStore: Store {
   }
 
 }
+

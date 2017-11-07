@@ -33,6 +33,7 @@ class Store {
     Alamofire.request(url, method: .get).validate().responseJSON { response in
       switch response.result {
         case .success(let value):
+          print(value)
           completion(JSON(value))
         case .failure(let error):
           print("Failed request with given url: \(url)", error)

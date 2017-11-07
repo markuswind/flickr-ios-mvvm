@@ -13,10 +13,21 @@ class TabBarController: UITabBarController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
+    let photosRecentNavigationController = createPhotosRecentNavigationController()
     let searchNavigationViewController = createSearchNavigationViewController()
-    let tempSearchNavigationViewController = createSearchNavigationViewController()
 
-    self.viewControllers = [searchNavigationViewController, tempSearchNavigationViewController]
+    self.viewControllers = [photosRecentNavigationController, searchNavigationViewController]
+  }
+
+   private func createPhotosRecentNavigationController() -> NavigationController {
+    let photosRecentViewModel = PhotosRecentCollectionViewModel()
+    let photosCollectionViewController = PhotosCollectionViewController(withViewModel: photosRecentViewModel)
+    let photosRecentNavigationController = NavigationController(rootViewController: photosCollectionViewController)
+
+    let tabBarItem = UITabBarItem(title: "Recent", image: nil, selectedImage: nil)
+    photosRecentNavigationController.tabBarItem = tabBarItem
+
+    return photosRecentNavigationController
   }
 
   private func createSearchNavigationViewController() -> NavigationController {
@@ -31,3 +42,4 @@ class TabBarController: UITabBarController {
   }
 
 }
+

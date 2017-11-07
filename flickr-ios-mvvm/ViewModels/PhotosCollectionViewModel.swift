@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PhotoCollectionViewModel {
+protocol PhotosCollectionViewModel {
 
   var reuseIdentifier: String { get }
 

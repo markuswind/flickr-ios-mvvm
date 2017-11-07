@@ -8,10 +8,12 @@
 
 import Foundation
 
-class SearchPhotoCollectionViewModel: PhotoCollectionViewModel {
+// TODO: - rename this + stores!
+
+class PhotosSearchCollectionViewModel: PhotosCollectionViewModel {
 
   // MARK: - Static Properties
-  var reuseIdentifier = "PhotoCollectionViewCell"
+  var reuseIdentifier = "PhotosSearchViewCell"
 
   var itemsPerPage = 30
   var itemsPerRow = 2
@@ -21,8 +23,7 @@ class SearchPhotoCollectionViewModel: PhotoCollectionViewModel {
   // MARK: - Properties
 
   let photosSearchText: String
-  let photosStore: PhotosStore
-
+  let photosSearchStore: PhotosSearchStore
   let navigationTitle: String
 
   var photosData: [Photo] = []
@@ -34,7 +35,7 @@ class SearchPhotoCollectionViewModel: PhotoCollectionViewModel {
   init(searchText: String) {
     navigationTitle = searchText
     photosSearchText = searchText
-    photosStore = PhotosStore()
+    photosSearchStore = PhotosSearchStore()
   }
 
   // MARK: - Data Interaction
@@ -42,7 +43,7 @@ class SearchPhotoCollectionViewModel: PhotoCollectionViewModel {
   func requestNextPhotosPage(completion:@escaping () -> ()) {
     currentPage += 1
 
-    photosStore.requestPhotos(searchText: photosSearchText, page: currentPage, itemsPerPage: itemsPerPage) { (photos, metaData) in
+    photosSearchStore.requestPhotos(searchText: photosSearchText, page: currentPage, itemsPerPage: itemsPerPage) { (photos, metaData) in
       self.photosData.append(contentsOf: photos)
 
       self.currentPage = metaData["currentPage"] as! Int

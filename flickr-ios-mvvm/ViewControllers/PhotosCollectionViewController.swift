@@ -9,16 +9,16 @@
 import AlamofireImage
 import UIKit
 
-class PhotoCollectionViewController: UICollectionViewController {
+class PhotosCollectionViewController: UICollectionViewController {
 
   // MARK: Properties
 
-  fileprivate let viewModel: PhotoCollectionViewModel!
+  fileprivate let viewModel: PhotosCollectionViewModel!
   fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
 
   // MARK: - Lifecycle
 
-  init(withViewModel: SearchPhotoCollectionViewModel) {
+  init(withViewModel: PhotosCollectionViewModel) {
     viewModel = withViewModel
     
     super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -49,7 +49,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     collectionView.dataSource = self
     collectionView.backgroundColor = Color.backgroundColor
 
-    collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: viewModel.reuseIdentifier)
+    collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: viewModel.reuseIdentifier)
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -92,14 +92,14 @@ class PhotoCollectionViewController: UICollectionViewController {
   // MARK: - Simple Fullscreen Image
 
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let selectedCell = collectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
+    let selectedCell = collectionView.cellForItem(at: indexPath) as! PhotosCollectionViewCell
     let imageView = selectedCell.imageView
 
     showFullscreenImage(image: imageView.image!)
   }
 
   private func showFullscreenImage(image: UIImage) {
-    let tap = UITapGestureRecognizer(target: self, action: #selector(PhotoCollectionViewController.dismissFullscreenImage))
+    let tap = UITapGestureRecognizer(target: self, action: #selector(PhotosCollectionViewController.dismissFullscreenImage))
     let imageView = UIImageView(image: image)
 
     imageView.frame = UIScreen.main.bounds
@@ -123,7 +123,7 @@ class PhotoCollectionViewController: UICollectionViewController {
 
 // MARK: - UICollectionViewDataSource
 
-extension PhotoCollectionViewController {
+extension PhotosCollectionViewController {
 
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
     return viewModel.photosData.count / viewModel.itemsPerSection
@@ -134,7 +134,7 @@ extension PhotoCollectionViewController {
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.reuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.reuseIdentifier, for: indexPath) as! PhotosCollectionViewCell
 
     let index = indexPath.row + (indexPath.section * viewModel.itemsPerSection)
     let imageURL = viewModel.photosData[index].imageURL()
@@ -148,7 +148,7 @@ extension PhotoCollectionViewController {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension PhotoCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
 
   // FIXME: - fix updating width/height when rotating screen
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
