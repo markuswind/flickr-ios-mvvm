@@ -47,6 +47,7 @@ Simple data flow used for retrieving data from the API:
 * [Alamofire](https://github.com/alamofire/alamofire)
 * [AlamofireImage](https://github.com/alamofire/alamofireimage)
 * [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+* \+ [StyleGuide](https://github.com/raywenderlich/swift-style-guide)
 
 ## License
 
