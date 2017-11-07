@@ -90,7 +90,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
   // MARK - View Interaction
 
   private func pushPhotoCollectionViewController(searchText: String) {
-    let viewModel = PhotoCollectionViewModel(searchText: searchText)
+    let viewModel = SearchPhotoCollectionViewModel(searchText: searchText)
     let viewController = PhotoCollectionViewController(withViewModel: viewModel)
 
     navigationController?.pushViewController(viewController, animated: true)

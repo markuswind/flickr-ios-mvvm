@@ -6,46 +6,23 @@
 //  Copyright © 2017 Markus Wind. All rights reserved.
 //
 
-class PhotoCollectionViewModel {
+import Foundation
 
-  // MARK: - Static Properties
+protocol PhotoCollectionViewModel {
 
-  static let reuseIdentifier = "PhotoCollectionViewCell"
+  var reuseIdentifier: String { get }
 
-  static let itemsPerPage = 30
-  static let itemsPerRow = 2
-  static let itemsPerSection = 10
-  static let itemsTreshold = itemsPerPage / 2
+  var itemsPerPage: Int { get }
+  var itemsPerRow: Int { get }
+  var itemsPerSection: Int { get }
+  var itemsTreshold: Int { get }
 
-  // MARK: - Properties
+  var navigationTitle: String { get }
 
-  let photosSearchText: String!
-  let photosStore: PhotosStore!
+  var photosData: [Photo] { get set }
+  var currentPage: Int { get set }
+  var totalPages: Int { get set }
 
-  var photosData: [Photo] = []
-  var currentPage = 0
-  var totalPages = 0
-
-  // MARK: - Lifecycle
-
-  init(searchText: String) {
-    photosSearchText = searchText
-    photosStore = PhotosStore()
-  }
-
-  // MARK: - Data Interaction
-
-  func requestNextPhotosPage(completion:@escaping () -> ()) {
-    currentPage += 1
-
-    photosStore.requestPhotos(searchText: photosSearchText, page: currentPage, itemsPerPage: PhotoCollectionViewModel.itemsPerPage) { (photos, metaData) in
-      self.photosData.append(contentsOf: photos)
-
-      self.currentPage = metaData["currentPage"] as! Int
-      self.totalPages = metaData["totalPages"] as! Int
-
-      completion()
-    }
-  }
+  func requestNextPhotosPage(completion:@escaping () -> ())
 
 }

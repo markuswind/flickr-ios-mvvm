@@ -18,7 +18,7 @@ class PhotoCollectionViewController: UICollectionViewController {
 
   // MARK: - Lifecycle
 
-  init(withViewModel: PhotoCollectionViewModel) {
+  init(withViewModel: SearchPhotoCollectionViewModel) {
     viewModel = withViewModel
     
     super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -37,7 +37,7 @@ class PhotoCollectionViewController: UICollectionViewController {
   }
 
   private func configureNavigationBar() {
-    navigationItem.title = viewModel.photosSearchText
+    navigationItem.title = viewModel.navigationTitle
   }
 
   private func configureCollectionView() {
@@ -49,7 +49,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     collectionView.dataSource = self
     collectionView.backgroundColor = Color.backgroundColor
 
-    collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewModel.reuseIdentifier)
+    collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: viewModel.reuseIdentifier)
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -59,9 +59,9 @@ class PhotoCollectionViewController: UICollectionViewController {
   // MARK: - Lazy Loading
 
   override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    let itemsPerPage = PhotoCollectionViewModel.itemsPerPage
-    let itemsPerSection = PhotoCollectionViewModel.itemsPerSection
-    let itemsTreshold = PhotoCollectionViewModel.itemsTreshold
+    let itemsPerPage = viewModel.itemsPerPage
+    let itemsPerSection = viewModel.itemsPerSection
+    let itemsTreshold = viewModel.itemsTreshold
 
     let currentItem = indexPath.row + (indexPath.section * itemsPerSection)
     let treshHoldItem = (viewModel.currentPage * itemsPerPage) - itemsTreshold
@@ -126,17 +126,17 @@ class PhotoCollectionViewController: UICollectionViewController {
 extension PhotoCollectionViewController {
 
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return viewModel.photosData.count / PhotoCollectionViewModel.itemsPerSection
+    return viewModel.photosData.count / viewModel.itemsPerSection
   }
 
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return PhotoCollectionViewModel.itemsPerSection
+    return viewModel.itemsPerSection
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewModel.reuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.reuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
 
-    let index = indexPath.row + (indexPath.section * PhotoCollectionViewModel.itemsPerSection)
+    let index = indexPath.row + (indexPath.section * viewModel.itemsPerSection)
     let imageURL = viewModel.photosData[index].imageURL()
 
     cell.imageView.image = nil
@@ -152,7 +152,7 @@ extension PhotoCollectionViewController: UICollectionViewDelegateFlowLayout {
 
   // FIXME: - fix updating width/height when rotating screen
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let itemsPerRow = CGFloat(PhotoCollectionViewModel.itemsPerRow)
+    let itemsPerRow = CGFloat(viewModel.itemsPerRow)
     let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
 
     let availableWidth = view.frame.width - paddingSpace
