@@ -110,11 +110,13 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     view.addSubview(imageView)
     navigationController?.isNavigationBarHidden = true
+    tabBarController?.tabBar.isHidden = true
   }
 
   @objc
   fileprivate func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
     self.navigationController?.isNavigationBarHidden = false
+    self.tabBarController?.tabBar.isHidden = false
 
     sender.view?.removeFromSuperview()
   }
