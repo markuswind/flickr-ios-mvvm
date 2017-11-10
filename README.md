@@ -29,6 +29,7 @@ see: SupportingFiles/Configuration.plist.example
 
 ### Features
 
+* Showing recent photos
 * Searching photos with specific term
 * History of recent searches
 * Lazy loading while user is scrolling
